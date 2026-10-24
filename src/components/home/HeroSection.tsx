@@ -1,0 +1,119 @@
+"use client";
+
+import Link from "next/link";
+import Image from "next/image";
+import { ArrowRight, Flame, Sparkles, ShieldCheck, Clock } from "lucide-react";
+
+export default function HeroSection() {
+  return (
+    <section className="relative bg-stone-950 text-white overflow-hidden border-b border-stone-800">
+      {/* Background ambient lighting */}
+      <div className="absolute top-0 right-1/4 w-96 h-96 bg-red-600/15 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute bottom-0 right-0 w-80 h-80 bg-amber-500/10 rounded-full blur-3xl pointer-events-none" />
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-20">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-center">
+          {/* Copy Column */}
+          <div className="lg:col-span-7 space-y-6 sm:space-y-8 z-10">
+            {/* Eyebrow badge */}
+            <div className="inline-flex items-center gap-2 bg-stone-900 border border-stone-800 px-3.5 py-1.5 rounded-full shadow-inner">
+              <span className="w-2 h-2 rounded-full bg-red-500 animate-ping" />
+              <Flame className="w-3.5 h-3.5 text-red-500" />
+              <span className="text-xs font-black tracking-widest text-amber-300 uppercase">
+                Direct From Coorg Hills
+              </span>
+            </div>
+
+            {/* Main Headline */}
+            <h1 className="text-4xl sm:text-6xl lg:text-7xl font-black tracking-tight leading-[0.95] text-white uppercase">
+              Crispy by Nature. <br />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-500 via-amber-400 to-amber-300">
+                Bold by Flavour.
+              </span>
+            </h1>
+
+            {/* Supporting Copy */}
+            <p className="text-base sm:text-lg lg:text-xl text-stone-300 max-w-xl leading-relaxed">
+              Big crunch. Bold flavour. Chicken cravings, sorted. Hand-dredged Karnataka farm chicken
+              seasoned with roasted estate black pepper and wild Coorg spices.
+            </p>
+
+            {/* CTAs */}
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 pt-2">
+              <Link
+                href="/menu"
+                className="inline-flex items-center justify-center gap-2.5 bg-gradient-to-r from-red-600 to-red-700 hover:from-red-500 hover:to-red-600 text-white font-black text-sm sm:text-base px-8 py-4 rounded-2xl shadow-xl shadow-red-950/60 hover:shadow-red-900/80 transition-all uppercase tracking-wider active:scale-[0.98] group"
+              >
+                <span>Order Now</span>
+                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+              </Link>
+
+              <Link
+                href="/menu"
+                className="inline-flex items-center justify-center gap-2 bg-stone-900/90 hover:bg-stone-800 text-stone-200 hover:text-white font-bold text-sm sm:text-base px-7 py-4 rounded-2xl border border-stone-800 transition-all uppercase tracking-wider active:scale-[0.98]"
+              >
+                <span>Explore Menu</span>
+              </Link>
+            </div>
+
+            {/* Trust Badges */}
+            <div className="grid grid-cols-3 gap-3 pt-6 border-t border-stone-800/80 max-w-lg">
+              <div className="flex items-center gap-2 text-stone-300">
+                <Sparkles className="w-4 h-4 text-amber-400 shrink-0" />
+                <span className="text-xs font-bold leading-tight">Coorg Estate Pepper</span>
+              </div>
+              <div className="flex items-center gap-2 text-stone-300">
+                <ShieldCheck className="w-4 h-4 text-emerald-400 shrink-0" />
+                <span className="text-xs font-bold leading-tight">100% Fresh Cuts</span>
+              </div>
+              <div className="flex items-center gap-2 text-stone-300">
+                <Clock className="w-4 h-4 text-red-400 shrink-0" />
+                <span className="text-xs font-bold leading-tight">30-Min Hot Delivery</span>
+              </div>
+            </div>
+          </div>
+
+          {/* Image Column */}
+          <div className="lg:col-span-5 relative">
+            <div className="relative mx-auto max-w-md lg:max-w-none">
+              {/* Image Frame */}
+              <div className="relative h-96 sm:h-[460px] lg:h-[500px] w-full rounded-3xl overflow-hidden shadow-2xl border-2 border-stone-800/80 bg-stone-900 group">
+                <Image
+                  src="/images/menu/hero-chicken.jpg"
+                  alt="Kodagu Fried Chicken - Crispy Golden Bucket Feast"
+                  fill
+                  priority
+                  className="object-cover group-hover:scale-105 transition-transform duration-700"
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-stone-950/70 via-transparent to-black/20" />
+
+                {/* Floating promo card */}
+                <div className="absolute bottom-4 left-4 right-4 bg-stone-900/90 backdrop-blur-md p-3.5 sm:p-4 rounded-2xl border border-stone-700/80 flex items-center justify-between shadow-xl">
+                  <div>
+                    <span className="text-[10px] uppercase tracking-wider font-extrabold text-amber-400 block">
+                      Signature Crunch
+                    </span>
+                    <h3 className="text-sm sm:text-base font-black text-white">Coorg Crunch Bucket</h3>
+                    <p className="text-xs text-stone-400">8 pcs hand-breaded chicken · ₹549</p>
+                  </div>
+                  <Link
+                    href="/menu?category=buckets"
+                    className="bg-red-600 hover:bg-red-500 text-white font-black text-xs px-3.5 py-2 rounded-xl uppercase tracking-wider transition-colors shrink-0"
+                  >
+                    Taste It
+                  </Link>
+                </div>
+              </div>
+
+              {/* Decorative Accent Ribbon */}
+              <div className="absolute -top-4 -right-4 bg-amber-400 text-stone-950 font-black text-xs uppercase px-3.5 py-1.5 rounded-full shadow-lg rotate-6 tracking-wider border-2 border-stone-950 hidden sm:block">
+                Double Crunch Guaranteed
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
