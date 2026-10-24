@@ -1,7 +1,8 @@
 "use client";
 
 import Link from "next/link";
-import { Flame, MapPin, Phone, Clock, Mail, ShieldAlert, Heart } from "lucide-react";
+import Image from "next/image";
+import { MapPin, Phone, Clock, Mail, ShieldAlert, Heart } from "lucide-react";
 import { useState } from "react";
 
 export default function Footer() {
@@ -33,19 +34,26 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10">
           {/* Brand Column */}
           <div className="lg:col-span-2 space-y-4">
-            <Link href="/" className="inline-flex items-center gap-3">
-              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-red-600 to-red-800 flex items-center justify-center shadow-md">
-                <span className="font-black text-xl text-amber-300">K</span>
-                <Flame className="w-4 h-4 text-amber-400 -ml-1 fill-amber-400" />
+            <Link href="/" className="inline-flex items-center gap-3.5 group">
+              <div className="relative w-14 h-14 shrink-0 transition-transform group-hover:scale-105 drop-shadow-md">
+                <Image
+                  src="/images/brand/kfc-logo.png"
+                  alt="Kodagu Fried Chicken (KFC) Official Mascot Logo"
+                  width={56}
+                  height={56}
+                  className="w-full h-full object-contain"
+                />
               </div>
               <div className="flex flex-col">
-                <span className="text-xl font-black tracking-tight text-white flex items-center gap-1.5">
-                  KODAGU
-                  <span className="text-[10px] bg-red-600/80 text-amber-300 font-bold px-1.5 py-0.5 rounded tracking-widest">
-                    COORG
+                <div className="flex items-center gap-1.5">
+                  <span className="text-xl sm:text-2xl font-black tracking-tight text-white">
+                    KODAGU
                   </span>
-                </span>
-                <span className="text-[10px] font-bold tracking-[0.25em] text-amber-400 uppercase">
+                  <span className="text-[10px] font-black bg-red-600 text-amber-300 px-1.5 py-0.5 rounded tracking-widest uppercase border border-red-500/40">
+                    KFC
+                  </span>
+                </div>
+                <span className="text-[11px] font-bold tracking-[0.24em] text-amber-400 uppercase leading-tight mt-0.5">
                   Fried Chicken
                 </span>
               </div>

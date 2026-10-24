@@ -21,6 +21,25 @@ export default function StorySection() {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
 
+              {/* Mascot Brand Seal */}
+              <div className="absolute top-4 right-4 bg-stone-950/85 backdrop-blur-md p-2 rounded-2xl border border-amber-400/40 flex items-center gap-2.5 shadow-xl">
+                <div className="relative w-10 h-10 shrink-0">
+                  <Image
+                    src="/images/brand/kfc-logo.png"
+                    alt="Original Mascot - Kodagu Fried Chicken"
+                    width={40}
+                    height={40}
+                    className="w-full h-full object-contain"
+                  />
+                </div>
+                <div className="pr-1 text-left hidden sm:block">
+                  <span className="text-[9px] font-extrabold uppercase tracking-wider text-amber-400 block">
+                    Original Brand
+                  </span>
+                  <span className="text-xs font-black text-white">Kodagu Fried Chicken</span>
+                </div>
+              </div>
+
               <div className="absolute bottom-5 left-5 right-5 bg-black/60 backdrop-blur-md p-4 rounded-2xl border border-white/10">
                 <p className="text-xs font-bold text-amber-400 uppercase tracking-wider">
                   Madikeri, Coorg · 3,500 ft Above Sea Level

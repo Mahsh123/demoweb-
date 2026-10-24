@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
+import Image from "next/image";
 import {
   Bike,
   Store,
@@ -527,9 +528,25 @@ export default function CheckoutPage() {
           {/* Right Column / Order Summary & Submit */}
           <div className="lg:col-span-5 space-y-4">
             <div className="bg-white rounded-3xl p-6 sm:p-8 border border-stone-200 shadow-sm space-y-5 sticky top-24">
-              <h2 className="text-base font-black text-stone-950 uppercase tracking-tight border-b border-stone-100 pb-3">
-                Order Review ({itemCount} {itemCount === 1 ? "item" : "items"})
-              </h2>
+              <div className="flex items-center gap-3 border-b border-stone-100 pb-3">
+                <div className="relative w-9 h-9 shrink-0 drop-shadow">
+                  <Image
+                    src="/images/brand/kfc-logo.png"
+                    alt="Kodagu Fried Chicken Mascot Logo"
+                    width={36}
+                    height={36}
+                    className="w-full h-full object-contain"
+                  />
+                </div>
+                <div>
+                  <h2 className="text-base font-black text-stone-950 uppercase tracking-tight">
+                    Order Review
+                  </h2>
+                  <p className="text-[11px] text-stone-500 font-semibold">
+                    Kodagu Fried Chicken · {itemCount} {itemCount === 1 ? "item" : "items"}
+                  </p>
+                </div>
+              </div>
 
               {/* Items summary list */}
               <div className="divide-y divide-stone-100 max-h-60 overflow-y-auto pr-1">

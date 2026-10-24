@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { useSearchParams } from "next/navigation";
 import Link from "next/link";
+import Image from "next/image";
 import {
   CheckCircle2,
   Clock,
@@ -61,13 +62,25 @@ export default function OrderConfirmationClient() {
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
         {/* Success Card Header */}
         <div className="bg-white rounded-3xl p-6 sm:p-10 border border-stone-200 shadow-xl text-center space-y-4 relative overflow-hidden">
-          <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center mx-auto shadow-inner">
-            <CheckCircle2 className="w-10 h-10 sm:w-12 sm:h-12" />
+          <div className="flex items-center justify-center gap-3">
+            <div className="relative w-20 h-20 sm:w-24 sm:h-24 shrink-0 drop-shadow-lg">
+              <Image
+                src="/images/brand/kfc-logo.png"
+                alt="Kodagu Fried Chicken (KFC) Official Mascot"
+                width={96}
+                height={96}
+                priority
+                className="w-full h-full object-contain"
+              />
+            </div>
+            <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center shadow-inner shrink-0 -ml-5 mt-6 border-2 border-white">
+              <CheckCircle2 className="w-7 h-7 sm:w-8 sm:h-8" />
+            </div>
           </div>
 
           <div className="space-y-1">
             <span className="text-xs font-black uppercase tracking-widest text-emerald-600">
-              SIMULATED DEMO ORDER CONFIRMED
+              SIMULATED DEMO ORDER CONFIRMED · KODAGU FRIED CHICKEN
             </span>
             <h1 className="text-3xl sm:text-4xl font-black text-stone-950 uppercase tracking-tight">
               That&apos;s A Wrap!
@@ -158,13 +171,24 @@ export default function OrderConfirmationClient() {
         {/* Order Receipt Details */}
         <div className="bg-white rounded-3xl p-6 sm:p-8 border border-stone-200 shadow-sm space-y-6">
           <div className="flex items-center justify-between border-b border-stone-100 pb-4">
-            <div>
-              <h2 className="text-lg font-black text-stone-900 uppercase tracking-tight">
-                Itemized Order Receipt
-              </h2>
-              <p className="text-xs text-stone-500">
-                Created: {order ? new Date(order.createdAt).toLocaleString("en-IN") : "Just now"}
-              </p>
+            <div className="flex items-center gap-3">
+              <div className="relative w-11 h-11 shrink-0 drop-shadow">
+                <Image
+                  src="/images/brand/kfc-logo.png"
+                  alt="Kodagu Fried Chicken Official Logo"
+                  width={44}
+                  height={44}
+                  className="w-full h-full object-contain"
+                />
+              </div>
+              <div>
+                <h2 className="text-lg font-black text-stone-900 uppercase tracking-tight">
+                  Itemized Order Receipt
+                </h2>
+                <p className="text-xs text-stone-500">
+                  Kodagu Fried Chicken · {order ? new Date(order.createdAt).toLocaleString("en-IN") : "Just now"}
+                </p>
+              </div>
             </div>
 
             <button

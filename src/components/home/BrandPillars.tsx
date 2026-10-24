@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { Sparkles, Flame, ShieldCheck, Truck } from "lucide-react";
 import { BRAND_PILLARS } from "@/data/brand";
 
@@ -23,8 +24,19 @@ export default function BrandPillars() {
     <section className="py-16 sm:py-24 bg-white border-b border-stone-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-2xl mx-auto mb-14">
+          <div className="flex justify-center mb-3">
+            <div className="relative w-14 h-14 drop-shadow-md">
+              <Image
+                src="/images/brand/kfc-logo.png"
+                alt="Kodagu Fried Chicken (KFC) Mascot Emblem"
+                width={56}
+                height={56}
+                className="w-full h-full object-contain"
+              />
+            </div>
+          </div>
           <span className="text-xs font-black uppercase tracking-widest text-red-600 mb-2 block">
-            THE KODAGU ADVANTAGE
+            THE KODAGU ADVANTAGE · KFC SIGNATURE STANDARDS
           </span>
           <h2 className="text-3xl sm:text-4xl font-black text-stone-900 tracking-tight">
             Why Kodagu Fried Chicken?

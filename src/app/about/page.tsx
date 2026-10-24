@@ -14,9 +14,22 @@ export default function AboutPage() {
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
         {/* Header */}
         <div className="text-center space-y-4 max-w-3xl mx-auto">
+          {/* Official Mascot Emblem */}
+          <div className="flex justify-center mb-2">
+            <div className="relative w-24 h-24 sm:w-28 sm:h-28 drop-shadow-xl hover:scale-105 transition-transform">
+              <Image
+                src="/images/brand/kfc-logo.png"
+                alt="Kodagu Fried Chicken (KFC) Official Mascot"
+                width={112}
+                height={112}
+                priority
+                className="w-full h-full object-contain"
+              />
+            </div>
+          </div>
           <div className="inline-flex items-center gap-1.5 bg-red-100 text-red-700 text-xs font-black uppercase tracking-widest px-3 py-1 rounded-full">
             <Sparkles className="w-3.5 h-3.5" />
-            <span>ORIGIN & PHILOSOPHY</span>
+            <span>ORIGIN & PHILOSOPHY · KODAGU FRIED CHICKEN</span>
           </div>
           <h1 className="text-4xl sm:text-6xl font-black text-stone-950 uppercase tracking-tight leading-none">
             From The Mist of Kodagu <br />

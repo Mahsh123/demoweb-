@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import {
   MapPin,
   Clock,
@@ -35,9 +36,21 @@ export default function LocationsPage() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
         {/* Header */}
         <div className="text-center space-y-3 max-w-2xl mx-auto">
+          <div className="flex justify-center mb-1">
+            <div className="relative w-16 h-16 sm:w-20 sm:h-20 drop-shadow-md">
+              <Image
+                src="/images/brand/kfc-logo.png"
+                alt="Kodagu Fried Chicken (KFC) Official Mascot"
+                width={80}
+                height={80}
+                priority
+                className="w-full h-full object-contain"
+              />
+            </div>
+          </div>
           <div className="inline-flex items-center gap-1.5 bg-red-100 text-red-700 text-xs font-black uppercase tracking-widest px-3 py-1 rounded-full">
             <Sparkles className="w-3.5 h-3.5" />
-            <span>KITCHENS & DELIVERY ZONES</span>
+            <span>KITCHENS & DELIVERY ZONES · KODAGU FRIED CHICKEN</span>
           </div>
           <h1 className="text-3xl sm:text-5xl font-black text-stone-950 uppercase tracking-tight">
             Find A Kodagu Kitchen.

@@ -16,11 +16,18 @@ export default function HeroSection() {
           {/* Copy Column */}
           <div className="lg:col-span-7 space-y-6 sm:space-y-8 z-10">
             {/* Eyebrow badge */}
-            <div className="inline-flex items-center gap-2 bg-stone-900 border border-stone-800 px-3.5 py-1.5 rounded-full shadow-inner">
-              <span className="w-2 h-2 rounded-full bg-red-500 animate-ping" />
-              <Flame className="w-3.5 h-3.5 text-red-500" />
+            <div className="inline-flex items-center gap-2.5 bg-stone-900 border border-stone-800 px-3.5 py-1.5 rounded-full shadow-inner">
+              <div className="relative w-5 h-5 shrink-0">
+                <Image
+                  src="/images/brand/kfc-logo.png"
+                  alt="Kodagu Fried Chicken Mascot"
+                  width={20}
+                  height={20}
+                  className="w-full h-full object-contain"
+                />
+              </div>
               <span className="text-xs font-black tracking-widest text-amber-300 uppercase">
-                Direct From Coorg Hills
+                Kodagu Fried Chicken · Original Coorg Heritage
               </span>
             </div>
 
@@ -76,6 +83,28 @@ export default function HeroSection() {
           {/* Image Column */}
           <div className="lg:col-span-5 relative">
             <div className="relative mx-auto max-w-md lg:max-w-none">
+              {/* Official Mascot Brand Seal Badge */}
+              <div className="absolute -top-5 -left-3 sm:-top-6 sm:-left-6 z-20 flex items-center gap-3 bg-stone-900/95 backdrop-blur-md p-2 sm:p-2.5 pr-4 rounded-full border-2 border-amber-400/50 shadow-2xl">
+                <div className="relative w-12 h-12 sm:w-14 sm:h-14 shrink-0 drop-shadow">
+                  <Image
+                    src="/images/brand/kfc-logo.png"
+                    alt="Kodagu Fried Chicken (KFC) Official Mascot"
+                    width={56}
+                    height={56}
+                    priority
+                    className="w-full h-full object-contain"
+                  />
+                </div>
+                <div className="flex flex-col text-left">
+                  <span className="text-[10px] font-extrabold uppercase tracking-widest text-amber-400 leading-tight">
+                    Original Mascot
+                  </span>
+                  <span className="text-xs sm:text-sm font-black text-white leading-tight">
+                    Kodagu Fried Chicken
+                  </span>
+                </div>
+              </div>
+
               {/* Image Frame */}
               <div className="relative h-96 sm:h-[460px] lg:h-[500px] w-full rounded-3xl overflow-hidden shadow-2xl border-2 border-stone-800/80 bg-stone-900 group">
                 <Image

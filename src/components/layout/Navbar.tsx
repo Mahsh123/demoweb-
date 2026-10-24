@@ -2,8 +2,9 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { ShoppingBag, Menu as MenuIcon, X, Flame, ChevronRight, PhoneCall } from "lucide-react";
+import { ShoppingBag, Menu as MenuIcon, X, ChevronRight, PhoneCall } from "lucide-react";
 import { useCart } from "@/context/CartContext";
 import { money } from "@/data/products";
 
@@ -45,18 +46,26 @@ export default function Navbar() {
             onClick={() => setMobileMenuOpen(false)}
             className="flex items-center gap-3 group"
           >
-            <div className="w-11 h-11 rounded-xl bg-gradient-to-br from-red-600 to-red-800 flex items-center justify-center shadow-md shadow-red-900/40 border border-red-500/30 group-hover:scale-105 transition-transform">
-              <span className="font-black text-xl tracking-tighter text-amber-300">K</span>
-              <Flame className="w-4 h-4 text-amber-400 -ml-1 fill-amber-400" />
+            <div className="relative w-12 h-12 sm:w-14 sm:h-14 shrink-0 transition-transform group-hover:scale-105 drop-shadow-md">
+              <Image
+                src="/images/brand/kfc-logo.png"
+                alt="Kodagu Fried Chicken (KFC) Mascot Logo"
+                width={56}
+                height={56}
+                priority
+                className="w-full h-full object-contain"
+              />
             </div>
             <div className="flex flex-col">
-              <span className="text-xl sm:text-2xl font-black tracking-tight leading-none text-white flex items-center gap-1.5">
-                KODAGU
-                <span className="text-xs bg-red-600/80 text-amber-300 font-bold px-1.5 py-0.5 rounded tracking-widest uppercase">
-                  COORG
+              <div className="flex items-center gap-1.5">
+                <span className="text-xl sm:text-2xl font-black tracking-tight leading-none text-white">
+                  KODAGU
                 </span>
-              </span>
-              <span className="text-[10px] sm:text-[11px] font-bold tracking-[0.25em] text-amber-400 uppercase leading-tight mt-0.5">
+                <span className="text-[10px] bg-red-600 text-amber-300 font-black px-1.5 py-0.5 rounded tracking-wider uppercase border border-red-500/40">
+                  KFC
+                </span>
+              </div>
+              <span className="text-[10px] sm:text-[11px] font-bold tracking-[0.24em] text-amber-400 uppercase leading-tight mt-0.5">
                 Fried Chicken
               </span>
             </div>
@@ -128,6 +137,27 @@ export default function Navbar() {
       {mobileMenuOpen && (
         <div className="md:hidden fixed inset-x-0 top-20 bg-stone-950/98 backdrop-blur-xl border-b border-stone-800 p-5 shadow-2xl transition-all duration-300 animate-in slide-in-from-top-4">
           <div className="flex flex-col gap-2">
+            {/* Mobile Brand Card */}
+            <div className="flex items-center gap-3 p-3 mb-2 rounded-2xl bg-stone-900 border border-stone-800">
+              <div className="relative w-11 h-11 shrink-0">
+                <Image
+                  src="/images/brand/kfc-logo.png"
+                  alt="Kodagu Fried Chicken Mascot"
+                  width={44}
+                  height={44}
+                  className="w-full h-full object-contain"
+                />
+              </div>
+              <div className="flex flex-col">
+                <span className="text-sm font-black text-white tracking-tight">
+                  Kodagu Fried Chicken
+                </span>
+                <span className="text-[10px] font-bold text-amber-400 uppercase tracking-wider">
+                  Original Coorg Crunch · KFC
+                </span>
+              </div>
+            </div>
+
             {NAV_LINKS.map((link) => {
               const isActive = pathname === link.href;
               return (

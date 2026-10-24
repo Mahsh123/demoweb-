@@ -65,14 +65,20 @@ export default function CartDrawer() {
         >
           {/* Header */}
           <div className="p-4 sm:p-5 border-b border-stone-800 flex items-center justify-between bg-stone-950">
-            <div className="flex items-center gap-2.5">
-              <div className="w-8 h-8 rounded-lg bg-red-600/20 text-red-400 flex items-center justify-center border border-red-500/30">
-                <ShoppingBag className="w-4 h-4" />
+            <div className="flex items-center gap-3">
+              <div className="relative w-10 h-10 shrink-0 drop-shadow">
+                <Image
+                  src="/images/brand/kfc-logo.png"
+                  alt="Kodagu Fried Chicken Mascot"
+                  width={40}
+                  height={40}
+                  className="w-full h-full object-contain"
+                />
               </div>
               <div>
                 <h2 className="text-base font-black uppercase tracking-wide text-white">Your Bag</h2>
                 <p className="text-xs text-stone-400">
-                  {itemCount} {itemCount === 1 ? "item" : "items"} · Demo cart
+                  Kodagu Fried Chicken · {itemCount} {itemCount === 1 ? "item" : "items"}
                 </p>
               </div>
             </div>
@@ -118,8 +124,14 @@ export default function CartDrawer() {
           {/* Content */}
           {items.length === 0 ? (
             <div className="flex-1 flex flex-col items-center justify-center p-8 text-center">
-              <div className="w-20 h-20 rounded-2xl bg-stone-800/60 flex items-center justify-center mb-4 text-stone-500 border border-stone-700">
-                <ShoppingBag className="w-10 h-10 stroke-[1.5]" />
+              <div className="relative w-20 h-20 mb-4 drop-shadow-md">
+                <Image
+                  src="/images/brand/kfc-logo.png"
+                  alt="Kodagu Fried Chicken Mascot"
+                  width={80}
+                  height={80}
+                  className="w-full h-full object-contain"
+                />
               </div>
               <h3 className="text-lg font-black text-white mb-1">Your bag is empty</h3>
               <p className="text-xs text-stone-400 max-w-xs mb-6">

@@ -1,14 +1,49 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 
-:root {
-  --background: #fbf9f5;
-  --foreground: #18181b;
+/* Custom brand tokens */
+@theme {
+  --color-brand-red: oklch(50% 0.22 27);
+  --color-brand-charcoal: oklch(20% 0.01 250);
+  --color-brand-gold: oklch(78% 0.15 80);
+  --color-brand-cream: oklch(98% 0.01 90);
+
+  --font-display: "Syne", "Outfit", ui-sans-serif, system-ui, sans-serif;
+  --font-body: "Inter", "DM Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Inter", "DM Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+}
+
+/* Base resets */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-  margin: 0;
-  padding: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+img, video {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Scroll bar styling */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: oklch(70% 0 0);
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: oklch(50% 0 0);
 }

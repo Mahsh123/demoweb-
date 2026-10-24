@@ -2,6 +2,7 @@
 
 import { useState, useMemo } from "react";
 import { useSearchParams } from "next/navigation";
+import Image from "next/image";
 import { Sparkles, Utensils, RotateCcw } from "lucide-react";
 import MenuFilterBar from "@/components/menu/MenuFilterBar";
 import ProductCard from "@/components/menu/ProductCard";
@@ -94,13 +95,13 @@ export default function MenuClient() {
     <div className="min-h-screen bg-stone-50 py-10 sm:py-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
         {/* Menu Page Heading */}
-        <div className="bg-stone-950 text-white rounded-3xl p-6 sm:p-10 border border-stone-800 shadow-xl relative overflow-hidden">
+        <div className="bg-stone-950 text-white rounded-3xl p-6 sm:p-10 border border-stone-800 shadow-xl relative overflow-hidden flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
           <div className="absolute -right-10 -bottom-10 w-72 h-72 bg-red-600/10 rounded-full blur-3xl pointer-events-none" />
 
           <div className="relative z-10 max-w-2xl space-y-2">
             <div className="inline-flex items-center gap-1.5 text-xs font-black uppercase tracking-widest text-amber-400">
               <Sparkles className="w-3.5 h-3.5" />
-              <span>AUTHENTIC COORG KITCHEN MENU</span>
+              <span>AUTHENTIC COORG KITCHEN MENU · KODAGU FRIED CHICKEN</span>
             </div>
             <h1 className="text-3xl sm:text-5xl font-black text-white uppercase tracking-tight">
               {currentCategoryInfo ? currentCategoryInfo.name : "Our Complete Menu"}
@@ -110,6 +111,17 @@ export default function MenuClient() {
                 ? currentCategoryInfo.tagline
                 : "Hand-breaded crispy chicken buckets, fiery burgers, pepper wings, combos and dips. Sample demo menu with illustrative pricing."}
             </p>
+          </div>
+
+          <div className="relative w-20 h-20 sm:w-24 sm:h-24 shrink-0 drop-shadow-xl z-10 hidden sm:block">
+            <Image
+              src="/images/brand/kfc-logo.png"
+              alt="Kodagu Fried Chicken (KFC) Official Mascot"
+              width={96}
+              height={96}
+              priority
+              className="w-full h-full object-contain"
+            />
           </div>
         </div>
 

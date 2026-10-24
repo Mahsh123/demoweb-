@@ -23,11 +23,11 @@ export default function OffersPage() {
     <div className="min-h-screen bg-stone-50 py-10 sm:py-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
         {/* Hero Banner */}
-        <div className="bg-gradient-to-r from-red-950 via-red-900 to-stone-950 text-white rounded-3xl p-6 sm:p-12 border border-red-800 shadow-2xl relative overflow-hidden">
+        <div className="bg-gradient-to-r from-red-950 via-red-900 to-stone-950 text-white rounded-3xl p-6 sm:p-12 border border-red-800 shadow-2xl relative overflow-hidden flex flex-col md:flex-row items-center justify-between gap-8">
           <div className="relative z-10 max-w-2xl space-y-4">
             <div className="inline-flex items-center gap-1.5 bg-amber-400 text-stone-950 text-xs font-black uppercase tracking-wider px-3 py-1 rounded-full">
               <Sparkles className="w-3.5 h-3.5" />
-              <span>DEMO SAVINGS & DISCOUNTS</span>
+              <span>OFFICIAL OFFERS · KODAGU FRIED CHICKEN</span>
             </div>
             <h1 className="text-3xl sm:text-5xl font-black uppercase tracking-tight leading-tight">
               A Little Extra For The Feast.
@@ -36,6 +36,16 @@ export default function OffersPage() {
               Explore our sample meal bundles, coupon codes, and value deals. Every coupon code can be
               tested right now in the simulated cart.
             </p>
+          </div>
+          <div className="relative w-28 h-28 sm:w-36 sm:h-36 shrink-0 drop-shadow-2xl z-10">
+            <Image
+              src="/images/brand/kfc-logo.png"
+              alt="Kodagu Fried Chicken (KFC) Official Mascot"
+              width={144}
+              height={144}
+              priority
+              className="w-full h-full object-contain"
+            />
           </div>
         </div>
 

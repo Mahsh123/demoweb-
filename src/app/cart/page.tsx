@@ -52,8 +52,14 @@ export default function CartPage() {
     return (
       <div className="min-h-[70vh] bg-stone-50 py-16 flex items-center justify-center">
         <div className="max-w-md w-full mx-4 text-center bg-white p-8 sm:p-12 rounded-3xl border border-stone-200 shadow-sm space-y-4">
-          <div className="w-20 h-20 rounded-2xl bg-stone-100 flex items-center justify-center mx-auto text-stone-400">
-            <ShoppingBag className="w-10 h-10" />
+          <div className="relative w-20 h-20 mx-auto drop-shadow-md">
+            <Image
+              src="/images/brand/kfc-logo.png"
+              alt="Kodagu Fried Chicken Mascot"
+              width={80}
+              height={80}
+              className="w-full h-full object-contain"
+            />
           </div>
           <h1 className="text-2xl font-black text-stone-900 uppercase">Your Bag is Empty</h1>
           <p className="text-xs sm:text-sm text-stone-500 leading-relaxed">
