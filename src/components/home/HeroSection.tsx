@@ -1,10 +1,42 @@
 "use client";
 
+import { useState, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowRight, Flame, Sparkles, ShieldCheck, Clock } from "lucide-react";
+import {
+  ArrowRight,
+  Sparkles,
+  ShieldCheck,
+  Clock,
+  Volume2,
+  VolumeX,
+  Play,
+  Pause,
+} from "lucide-react";
 
 export default function HeroSection() {
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const [isMuted, setIsMuted] = useState(true);
+  const [isPlaying, setIsPlaying] = useState(true);
+
+  const toggleSound = () => {
+    if (!videoRef.current) return;
+    const nextMuted = !videoRef.current.muted;
+    videoRef.current.muted = nextMuted;
+    setIsMuted(nextMuted);
+  };
+
+  const togglePlay = () => {
+    if (!videoRef.current) return;
+    if (videoRef.current.paused) {
+      videoRef.current.play();
+      setIsPlaying(true);
+    } else {
+      videoRef.current.pause();
+      setIsPlaying(false);
+    }
+  };
+
   return (
     <section className="relative bg-stone-950 text-white overflow-hidden border-b border-stone-800">
       {/* Background ambient lighting */}
@@ -80,7 +112,7 @@ export default function HeroSection() {
             </div>
           </div>
 
-          {/* Image Column */}
+          {/* Media Column (Video Showcase Frame with Mascot Seal) */}
           <div className="lg:col-span-5 relative">
             <div className="relative mx-auto max-w-md lg:max-w-none">
               {/* Official Mascot Brand Seal Badge */}
@@ -105,20 +137,51 @@ export default function HeroSection() {
                 </div>
               </div>
 
-              {/* Image Frame */}
+              {/* Video Frame */}
               <div className="relative h-96 sm:h-[460px] lg:h-[500px] w-full rounded-3xl overflow-hidden shadow-2xl border-2 border-stone-800/80 bg-stone-900 group">
-                <Image
-                  src="/images/menu/hero-chicken.jpg"
-                  alt="Kodagu Fried Chicken - Crispy Golden Bucket Feast"
-                  fill
-                  priority
-                  className="object-cover group-hover:scale-105 transition-transform duration-700"
-                  sizes="(max-width: 768px) 100vw, 50vw"
+                <video
+                  ref={videoRef}
+                  src="/videos/hero-crunch.mp4"
+                  poster="/images/menu/hero-chicken.jpg"
+                  autoPlay
+                  loop
+                  muted={isMuted}
+                  playsInline
+                  preload="metadata"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-stone-950/70 via-transparent to-black/20" />
+                <div className="absolute inset-0 bg-gradient-to-t from-stone-950/85 via-transparent to-black/30 pointer-events-none" />
+
+                {/* Floating Media Controls */}
+                <div className="absolute top-4 right-4 z-20 flex items-center gap-2">
+                  <button
+                    onClick={toggleSound}
+                    className="bg-black/60 hover:bg-black/85 text-white p-2 rounded-full backdrop-blur-md border border-white/15 transition-all shadow-lg active:scale-95"
+                    aria-label={isMuted ? "Unmute sizzle audio" : "Mute sizzle audio"}
+                    title={isMuted ? "Unmute audio" : "Mute audio"}
+                  >
+                    {isMuted ? (
+                      <VolumeX className="w-4 h-4 text-amber-400" />
+                    ) : (
+                      <Volume2 className="w-4 h-4 text-emerald-400" />
+                    )}
+                  </button>
+                  <button
+                    onClick={togglePlay}
+                    className="bg-black/60 hover:bg-black/85 text-white p-2 rounded-full backdrop-blur-md border border-white/15 transition-all shadow-lg active:scale-95"
+                    aria-label={isPlaying ? "Pause video" : "Play video"}
+                    title={isPlaying ? "Pause video" : "Play video"}
+                  >
+                    {isPlaying ? (
+                      <Pause className="w-4 h-4 text-stone-200" />
+                    ) : (
+                      <Play className="w-4 h-4 text-amber-400 fill-amber-400" />
+                    )}
+                  </button>
+                </div>
 
                 {/* Floating promo card */}
-                <div className="absolute bottom-4 left-4 right-4 bg-stone-900/90 backdrop-blur-md p-3.5 sm:p-4 rounded-2xl border border-stone-700/80 flex items-center justify-between shadow-xl">
+                <div className="absolute bottom-4 left-4 right-4 bg-stone-900/90 backdrop-blur-md p-3.5 sm:p-4 rounded-2xl border border-stone-700/80 flex items-center justify-between shadow-xl z-10">
                   <div>
                     <span className="text-[10px] uppercase tracking-wider font-extrabold text-amber-400 block">
                       Signature Crunch
@@ -136,8 +199,8 @@ export default function HeroSection() {
               </div>
 
               {/* Decorative Accent Ribbon */}
-              <div className="absolute -top-4 -right-4 bg-amber-400 text-stone-950 font-black text-xs uppercase px-3.5 py-1.5 rounded-full shadow-lg rotate-6 tracking-wider border-2 border-stone-950 hidden sm:block">
-                Double Crunch Guaranteed
+              <div className="absolute -bottom-3 -right-3 bg-amber-400 text-stone-950 font-black text-xs uppercase px-3.5 py-1.5 rounded-full shadow-lg rotate-[-4deg] tracking-wider border-2 border-stone-950 hidden sm:block z-20">
+                Sizzling Double Crunch
               </div>
             </div>
           </div>
